@@ -1,58 +1,55 @@
-<script>
+<script setup>
+// export default{
+    // props: ['words'],
+    // computed: {
+    //     wordcount(){
+    //         if(!this.words) return 0
+    //         return this.words.split(' ').length
+    //     },
 
-export default{
-    data() {
-        return {
-            words: ''
-        }   
-    },
+    //     charactersCount(){
+    //         return this.words.length
+    //     },
 
-    computed: {
-        wordcount(){
-            if(!this.words) return 0
-            return this.words.split(' ').length
-        },
+    //     sentenceCount(){
+    //         if(!this.words) return 0
+    //         const sentence =  this.words.match(/[^.!?]+[.!?]+/g)
+    //         return sentence ? sentence.length : 0
+    //     }
+    // }
+// }
 
-        charactersCount(){
-            return this.words.length
-        },
+import { useWordStore } from '../stores/Words'
 
-        sentenceCount(){
-            if(!this.words) return 0
-            const sentence =  this.words.match(/[^.!?]+[.!?]+/g)
-            return sentence ? sentence.length : 0
-        }
-    }
-}
+const store = useWordStore()
+word.value = ''
 </script>
 
 <template>
     <div>
-        <div>
-            <h2>Words</h2>
-            <p>{{ wordcount }}</p>
+        <div class="navbar navbar-expand-lg navbar-light bg-light m-4 d-flex justify-content-evenly"> 
+            <div>
+                <h2>Words</h2>
+                <p>{{ wordcount }}</p>
+            </div>
+
+            <div>
+                <h2>Characters</h2>
+                <p>{{ charactersCount }}</p>
+            </div>
+
+            <div>
+                <h2>Sentences</h2>
+                <p>{{ sentenceCount }}</p>
+            </div>
         </div>
 
-        <div>
-            <h2>Characters</h2>
-            <p>{{ charactersCount }}</p>
-        </div>
-
-        <div>
-            <h2>Sentences</h2>
-            <p>{{ sentenceCount }}</p>
-        </div>
-
-        <div>
-            <textarea v-model="words" type="text" placeholder="Enter Something"></textarea>
-        </div>
-
-        <div>
-            <h3></h3>
-        </div>
     </div>
 </template>
 
-<style lang="scss" scoped>
-
+<style scoped>
+input{
+    min-width: 300px;
+    max-width: 1040px;
+}
 </style>
