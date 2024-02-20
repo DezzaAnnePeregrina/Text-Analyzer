@@ -27,3 +27,7 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### Screenshot 
+
+![](./public/screencapture-chipper-griffin-3ba617-netlify-app-2024-02-20-12_56_54.jpg)
